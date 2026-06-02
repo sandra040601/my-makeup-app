@@ -1,7 +1,7 @@
 import streamlit as st
 
 # ==============================================================================
-# 🗂️ 1. 膚質保養與底妝資料庫 (含有完整 10 個步驟的對應產品)
+# 🗂️ 1. 膚質保養與底妝資料庫 (含有完整 12 個品項的對應產品)
 # ==============================================================================
 SKIN_DATABASE = {
     "oil": {
@@ -16,7 +16,9 @@ SKIN_DATABASE = {
             "step7_base": {"reason": "強力吸附油脂，延緩全臉暗沉並修正粗大毛孔。", "items": ["【1028】超控油饰底乳 $299", "【SOFINA】漾緁控油瓷效妝前乳 $350", "【媚點】零瑕美肌妝前乳 $220"]},
             "step8_concealer": {"reason": "高遮瑕且質地偏乾的霧面遮瑕，完美鎖死痘疤與局部泛紅。", "items": ["【1028】服服貼貼遮瑕膏 $280", "【heme】無瑕持久遮瑕蜜 $300", "【Maybelline】FIT ME遮瑕膏 $300"]},
             "step9_foundation": {"reason": "微米控油科技或高遮瑕霧面粉體，打造長效啞光妝感。", "items": ["【Maybelline】反孔特霧粉底液 $420", "【1028】極上鏡柔光超磁控粉底液 $390", "【KATE】零瑕肌密微霧粉底液 $540"]},
-            "step10_powder": {"reason": "極佳的乾粉吸油力，強力鎖死面部油脂並極致柔焦。", "items": ["【惹我】清爽吸油蜜粉 $145", "【innisfree】無油無慮礦物控油蜜粉 $250", "【1028】超吸油蜜粉餅 $159"]}
+            "step10_powder": {"reason": "極佳的乾粉吸油力，強力鎖死面部油脂並極致柔焦。", "items": ["【惹我】清爽吸油蜜粉 $145", "【innisfree】無油無慮礦物控油蜜粉 $250", "【1028】超吸油蜜粉餅 $159"]},
+            "step_eyebrow": {"reason": "防潑水抗油配方眉筆，避免出油導致眉尾消失。", "items": ["【1028】精算持色細眉筆 $180", "【Za】旋轉眉筆 $190", "【惹我】眉筆 $85"]},
+            "step_contour": {"reason": "純清爽霧面不致痘配方，修飾臉型不顯油光。", "items": ["【heme】三色修容餅 $299", "【Solone】神隱修容餅 $159", "【1028】輪廓定格好氣色雙妝盤 $290"]}
         },
         "2": {
             "step1_remover": {"reason": "醫美級平衡皮脂分泌配方，溫和卸妝不破壞皮脂膜。", "items": ["【貝德瑪】平衡控油潔膚液 $450", "【理膚寶水】高效溫和卸妝水 $480", "【雅漾】控油清爽潔膚水 $500"]},
@@ -28,7 +30,9 @@ SKIN_DATABASE = {
             "step7_base": {"reason": "兼具長效持妝與抗暗沉效果的柔焦打底妝前乳。", "items": ["【Pony Effect】水透光控油妝前乳 $690", "【MAQuillAGE】心機星魅平衡持妝控油乳 $720", "【Espoir】純素控油妝前乳 $650"]},
             "step8_concealer": {"reason": "抗油抗汗的高持久度遮瑕，不易位移變色、完美隱形痘痘。", "items": ["【CLIO】無瑕持妝遮瑕膏 $450", "【J/X】三色遮瑕膏 $580", "【The Saem】完美遮瑕液 $350"]},
             "step9_foundation": {"reason": "中高價位抗油抗汗防裂粉底，霧面妝效持久不浮粉。", "items": ["【KATE】零瑕肌密持緞粉底液 $540", "【CLIO】柔霧光澤持妝粉底液 $680", "【Pony Effect】絕對遮瑕隱形粉底液 $790"]},
-            "step10_powder": {"reason": "超強效定妝控油，全天候維持高級微霧面妝感。", "items": ["【Pony Effect】絕對持久定妝噴霧 $550", "【I'M MEME】我愛油光除霧蜜粉餅 $290", "【banila co】空氣感控油蜜粉 $450"]}
+            "step10_powder": {"reason": "超強效定妝控油，全天候維持高級微霧面妝感。", "items": ["【Pony Effect】絕對持久定妝噴霧 $550", "【I'M MEME】我愛油光除霧蜜粉餅 $290", "【banila co】空氣感控油蜜粉 $450"]},
+            "step_eyebrow": {"reason": "持久度極佳的雙頭砍刀眉筆，抗汗防摩擦。", "items": ["【Excel】3合1持久造型眉筆 $520", "【KATE】雙用立體眉筆 $380", "【Dejavu】就是自然持色眉筆 $260"]},
+            "step_contour": {"reason": "日系微粒子霧面修容，不易結塊且完美貼合出油肌膚。", "items": ["【Canmake】小臉雙色修容粉 $380", "【Too Cool For School】美術課三色修容餅 $450", "【Kaibeauty】柔光雙色修容盤 $580"]}
         },
         "3": {
             "step1_remover": {"reason": "專櫃頂級潔顏油，深入毛孔徹底溶解黑頭與頑固彩妝。", "items": ["【植村秀】黑米精萃潔顏油 $1200", "【BOBBI BROWN】沁透茉莉淨妝油 $1350", "【CLINIQUE】溫和卸妝膏 $1150"]},
@@ -40,7 +44,9 @@ SKIN_DATABASE = {
             "step7_base": {"reason": "專櫃級水感控油打底，平滑毛孔、神級持妝對抗中東油田。", "items": ["【YSL】名模肌密光燦水凝露 $2150", "【M·A·C】超顯白持妝乳 $1450", "【GIVENCHY】高級訂製妝前打底乳 $1600"]},
             "step8_concealer": {"reason": "奢華絲滑高粉體遮瑕，不乾不裂、一抹完美霧化痘痘暗沉。", "items": ["【NARS】奢華絲柔持妝遮瑕霜 $1100", "【肌膚之鑰】皆效無瑕遮瑕膏 $2000", "【DIOR】超完美持久遮瑕乳 $1300"]},
             "step9_foundation": {"reason": "油肌終極專櫃救星，越夜越美麗，抗油抗汗不脫妝。", "items": ["【雅詩蘭黛】粉持久完美持妝粉底 $2100", "【植村秀】無極限超時輕粉底 $1900", "【YSL】恆久完美無瑕持妝粉底 $2300"]},
-            "step10_powder": {"reason": "煙霧般頂級細緻粉體，徹底鎖死油光並全面柔焦毛孔。", "items": ["【M·A·C】超持妝輕透鏡蜜粉 $1500", "【LAURA MERCIER】煥顏透明蜜粉 $1500", "【GIVENCHY】高級訂製四格蜜粉 $2200"]}
+            "step10_powder": {"reason": "煙霧般頂級細緻粉體，徹底鎖死油光並全面柔焦毛孔。", "items": ["【M·A·C】超持妝輕透鏡蜜粉 $1500", "【LAURA MERCIER】煥顏透明蜜粉 $1500", "【GIVENCHY】高級訂製四格蜜粉 $2200"]},
+            "step_eyebrow": {"reason": "奢華持久度與流暢線條，細緻填補眉毛空隙且極度耐汗。", "items": ["【植村秀】自動武士刀眉筆 $1350", "【肌膚之鑰】線條美眉筆 $1800", "【DIOR】搶眼造型眉筆 $1050"]},
+            "step_contour": {"reason": "專櫃神級亞洲消腫灰棕調，粉質極致細緻，打造自然立體輪廓。", "items": ["【M·A·C】時尚焦點小眼影 #Omega $750", "【NARS】3D立體燦光修容餅 $1400", "【Fenty Beauty】琥珀修容棒 $1050"]}
         }
     },
     "dry": {
@@ -55,7 +61,9 @@ SKIN_DATABASE = {
             "step7_base": {"reason": "高比例美容液成分打底，為乾燥肌底注入水分防止乾裂。", "items": ["【CEZANNE】長效保濕妝前乳 $290", "【Media】保濕礦物妝前乳 $220", "【SOFINA】漾緁水潤瓷效妝前乳 $350"]},
             "step8_concealer": {"reason": "添加保濕因子的水潤遮瑕液，修飾黑眼圈不卡紋、不結塊。", "items": ["【Maybelline】FIT ME遮瑕膏 $300", "【1028】服服貼貼遮瑕膏 $280", "【The Saem】重點遮瑕液 $200"]},
             "step9_foundation": {"reason": "高滋潤霜狀或乳狀質地，能完美服貼脫屑肌膚，撫平乾紋。", "items": ["【Media】粉嫩保濕礦物粉底霜 $280", "【INTEGRATE】迷人光采粉底精華 $380", "【Kate】柔焦瑕力粉底液 $450"]},
-            "step10_powder": {"reason": "保濕型定妝噴霧代替乾粉，定妝同時牢牢鎖住水分。", "items": ["【1028】空氣定妝噴霧(保濕型) $350", "【防曬專科】保濕定妝噴霧 $280", "【Carome】持久保濕噴霧 $420"]}
+            "step10_powder": {"reason": "保濕型定妝噴霧代替乾粉，定妝同時牢牢鎖住水分。", "items": ["【1028】空氣定妝噴霧(保濕型) $350", "【防曬專科】保濕定妝噴霧 $280", "【Carome】持久保濕噴霧 $420"]},
+            "step_eyebrow": {"reason": "滑順不乾澀的微發色眉筆，即使眉骨乾燥脫屑也能溫和上色。", "items": ["【Solone】天生好手極細三角眉筆 $159", "【heme】極細持色眉筆 $169", "【Excel】3合1持久造型眉筆小資版 $450"]},
+            "step_contour": {"reason": "保濕度較佳的壓粉修容，柔和修飾雙頰而不顯乾燥皮屑。", "items": ["【heme】純色腮紅/修容 #04 $240", "【Solone】神隱修容餅 $159", "【CEZANNE】小臉修容餅 $200"]}
         },
         "2": {
             "step1_remover": {"reason": "醫美級滋潤卸妝凝露，守護肌膚關鍵神經醯胺成分。", "items": ["【Curel】潤浸保濕卸妝凝露 $400", "【舒特膚】溫和卸妝乳 $450", "【理膚寶水】溫和保濕卸妝乳 $480"]},
@@ -66,8 +74,10 @@ SKIN_DATABASE = {
             "step6_sunscreen": {"reason": "高滋潤物理防曬，全面折射紫外線且滋潤乾燥表皮。", "items": ["【理膚寶水】全護長效保濕防曬乳 $850", "【Curel】潤浸保濕防曬乳 $600", "【Dr.Wu】全效保濕防曬乳 $720"]},
             "step7_base": {"reason": "爆水級妝前打底乳，提供極高保濕度，維持全天底妝水潤。", "items": ["【Pony Effect】水透光妝前防護乳 $690", "【Excel】柔采光透妝前乳 $610", "【KATE】零瑕肌密濾鏡妝前乳 $390"]},
             "step8_concealer": {"reason": "高延展性保濕修護遮瑕膏，絕不乾裂卡粉、完美遮蓋瑕疵。", "items": ["【Medicube】修護遮瑕液 $480", "【d program】敏感話題敏弱遮瑕膏 $600", "【CLIO】無瑕水潤遮瑕蜜 $450"]},
-            "step9_foundation": {"reason": "兼具高潤澤感與精緻透亮奶油光的保濕型粉底液。", "items": ["【CLIO】柔霧光澤水感粉底液 $680", "【Maybelline】水凝BB純淨透亮粉底膏 $450", "微【1028】極上鏡柔光超磁控粉底液(滋潤版) $390"]},
-            "step10_powder": {"reason": "以高細緻微霧定妝噴霧代替乾粉定妝，緊鎖水分防止起皮。", "items": ["【Pony Effect】絕對持久定妝噴霧 $550", "【高絲】高絲美顏定妝噴霧 $360", "【SOFINA】漾緁控油定妝噴霧 $380"]}
+            "step9_foundation": {"reason": "兼具高潤澤感與精緻透亮奶油光的保濕型粉底液。", "items": ["【CLIO】柔霧光澤水感粉底液 $680", "【Maybelline】水凝BB純淨透亮粉底膏 $450", "【1028】極上鏡柔光超磁控粉底液(滋潤版) $390"]},
+            "step10_powder": {"reason": "以高細緻微霧定妝噴霧代替乾粉定妝，緊鎖水分防止起皮。", "items": ["【Pony Effect】絕對持久定妝噴霧 $550", "【高絲】高絲美顏定妝噴霧 $360", "【SOFINA】漾緁控油定妝噴霧 $380"]},
+            "step_eyebrow": {"reason": "添加滋潤蠟質的雙頭眉筆，不易刺激乾裂的肌膚。", "items": ["【KATE】雙用立體眉筆 $380", "【Clio】不暈染極細自動眉筆 $350", "【Dejavu】持久柔滑眉筆 $260"]},
+            "step_contour": {"reason": "添加植物精華滋潤成分的打亮修容盤，完美貼合雙頰乾燥肌膚。", "items": ["【Canmake】小臉修容餅新版 $380", "【Rimmel】倫敦荒漠持久修容盤 $390", "【3CE】立體雙色修容盤 $550"]}
         },
         "3": {
             "step1_remover": {"reason": "貴婦級養膚型卸妝霜，膏體化為親膚油脂，帶來頂級滋潤感。", "items": ["【EVE LOM】全能深層潔淨霜 $2500", "【DARPHIN】花梨木按摩潔面膏 $1700", "【芭比波朗】大橘子卸妝膏 $1450"]},
@@ -77,9 +87,11 @@ SKIN_DATABASE = {
             "step5_cream": {"reason": "傳奇頂級修護封閉鎖水乳霜，深度滋養，徹底封死水分流失。", "items": ["【海洋拉娜】經典乳霜 $6800", "【百優】精純乳霜 $2300", "【Kiehl's】冰河醣蛋白保濕霜 $1600"]},
             "step6_sunscreen": {"reason": "奢華保養級全效防曬，極高含水量，打造極致尊榮上妝底層。", "items": ["【肌膚之鑰】全效防護乳 $3300", "【CHANEL】珍珠光感超淨化防護乳 $2000", "【DIOR】雪晶靈輕透防曬隔離乳 $2200"]},
             "step7_base": {"reason": "專櫃乾肌打底神物，瞬間撫平乾燥紋理，煥發精緻貴婦光澤。", "items": ["【蘿拉蜜思】煥顏凝露(保濕型) $1500", "【PAUL & JOE】糖瓷絲潤隔離乳 $1200", "【肌膚之鑰】光采無瑕妝前凝霜 $2100"]},
-            "step8_concealer": {"reason": "貴婦級精華液基底遮瑕，極致貼膚滑順，完全隱形眼周乾紋。", "items": ["【肌膚之鑰】皆效無瑕遮瑕膏 $2000", "【BOBBI BROWN】冬蟲夏草奢華遮瑕膏 $1400", "【LA MER】奇蹟煥采遮瑕膏 $2500"]},
+            "step8_concealer": {"reason": "貴婦級精華液基底遮瑕，極致輕盈貼膚，完全隱形眼周乾紋。", "items": ["【肌膚之鑰】皆效無瑕遮瑕膏 $2000", "【BOBBI BROWN】冬蟲夏草奢華遮瑕膏 $1400", "【LA MER】奇蹟煥采遮瑕膏 $2500"]},
             "step9_foundation": {"reason": "頂級養膚精華粉底，注入滿滿精華成分，打造精緻水光肌。", "items": ["【BOBBI BROWN】冬蟲夏草精華粉底 $2600", "【LANCOME】絕對完美粉底精粹 $3200", "【SUQQU】絕緻艷澤粉霜 $380"]},
-            "step10_powder": {"reason": "頂級微細乾粉，完全不乾澀、不奪走肌膚水分的奢華定妝。", "items": ["【香奈兒】輕盈完美蜜粉 $2150", "【肌膚之鑰】光采蜜粉 $2450", "【SUQQU】晶采透霧蜜粉 $2300"]}
+            "step10_powder": {"reason": "頂級微細乾粉，完全不乾澀、不奪走肌膚水分的奢華定妝。", "items": ["【香奈兒】輕盈完美蜜粉 $2150", "【肌膚之鑰】光采蜜粉 $2450", "【SUQQU】晶采透霧蜜粉 $2300"]},
+            "step_eyebrow": {"reason": "滑順絲絨質感的殿堂級眉筆，極致呵護乾燥角質不拖扯皮膚。", "items": ["【植村秀】自動武士刀眉筆 $1350", "【TOM FORD】巨星三合一塑型眉筆 $2200", "【香奈兒】持久防水眉筆 $1450"]},
+            "step_contour": {"reason": "高奢養膚微粒粉體，一抹平滑不顯乾紋，創造神級深邃光影。", "items": ["【Kevyn Aucoin】修容餅 #Medium $1500", "【BOBBI BROWN】飛霞修容餅 $1450", "【肌膚之鑰】立體打亮修容盤 $3100"]}
         }
     },
     "mix": {
@@ -94,7 +106,9 @@ SKIN_DATABASE = {
             "step7_base": {"reason": "適合局部塗抹在易出油的 T 字部位，達到完美分區控油打底。", "items": ["【SOFINA】漾緁控油瓷效妝前乳 $350", "【1028】超控油飾底乳 $299", "【媚點】防曬妝前乳 $220"]},
             "step8_concealer": {"reason": "高延展度中度遮瑕蜜，完美過渡出油區與乾燥區的色差毛孔。", "items": ["【Maybelline】FIT ME遮瑕膏 $300", "【1028】服服貼貼遮瑕膏 $280", "【heme】無瑕持久遮瑕蜜 $300"]},
             "step9_foundation": {"reason": "水潤好推、不卡乾紋，對雙頰友善且兼具基本 T 字抗汗力。", "items": ["【Media】自然肌透持效粉底液 $330", "【Maybelline】反孔特霧粉底液 $420", "【INTEGRATE】柔焦輕透美肌粉底液 $380"]},
-            "step10_powder": {"reason": "分區定妝，重點按壓 T 字吸附油脂，雙頰輕輕帶過。", "items": ["【1028】超吸油蜜粉餅 $159", "【惹我】清爽吸油蜜粉 $145", "【innisfree】無油無慮礦物控油蜜粉 $250"]}
+            "step10_powder": {"reason": "分區定妝，重點按壓 T 字吸附油脂，雙頰輕輕帶過。", "items": ["【1028】超吸油蜜粉餅 $159", "【惹我】清爽吸油蜜粉 $145", "【innisfree】無油無慮礦物控油蜜粉 $250"]},
+            "step_eyebrow": {"reason": "筆芯滑順、軟硬適中的雙頭旋轉眉筆，完美因應混合肌油脂分佈。", "items": ["【1028】我型我塑持色眉筆 $290", "【heme】三角色計眉筆 $200", "【Za】旋轉眉筆 $190"]},
+            "step_contour": {"reason": "高CP值三色修容，T字不顯油光、雙頰不過度乾燥。", "items": ["【heme】三色修容餅 $299", "【Solone】神隱修容餅 $159", "//【1028】雙效立體打亮修容盤 $320"]}
         },
         "2": {
             "step1_remover": {"reason": "溫和、高清潔力且質地清爽的潔膚水，完全不留全臉黏膩感。", "items": ["【貝德瑪】舒敏潔膚液 $450", "【理膚寶水】高效溫和卸妝水 $480", "【雅漾】舒敏卸妝潔膚水 $500"]},
@@ -106,19 +120,23 @@ SKIN_DATABASE = {
             "step7_base": {"reason": "平衡全臉水油分布的持妝乳，不乾燥亦不浮油。", "items": ["【KATE】零瑕肌密持妝乳 $390", "【Pony Effect】水透光妝前乳 $690", "【MAQuillAGE】心機平衡持妝乳 $720"]},
             "step8_concealer": {"reason": "中高價位全能型遮瑕盤，可自由調配滋潤度、完美隱形瑕疵。", "items": ["【J/X】三色遮瑕膏 $580", "【Excel】完美全效遮瑕盤 $570", "【CLIO】無瑕持妝遮瑕膏 $450"]},
             "step9_foundation": {"reason": "微霧面偏緞面質地粉底，完美隱形 T 字毛孔、服貼雙頰。", "items": ["【Maybelline】反孔特霧粉底液 $420", "【KATE】零瑕肌密微霧粉底液 $540", "【CLIO】柔霧光澤持妝粉底液 $680"]},
-            "step10_powder": {"reason": "水潤成膜定妝噴霧，完美鎖住全臉不同區塊的精緻妝容。", "items": ["【1028】空氣定妝噴霧 $350", "【Pony Effect】絕對持久定妝噴霧 $550", "【高絲】美顏定妝噴霧 $360"]}
+            "step10_powder": {"reason": "水潤成膜定妝噴霧，完美鎖住全臉不同區塊的精緻妝容。", "items": ["【1028】空氣定妝噴霧 $350", "【Pony Effect】絕對持久定妝噴霧 $550", "【高絲】美顏定妝噴霧 $360"]},
+            "step_eyebrow": {"reason": "高人氣三合一眉筆，集眉筆、眉粉、眉刷於一身，抗出油力強。", "items": ["【Excel】3合1持久造型眉筆 $520", "【KATE】雙用立體眉筆 $380", "【Innisfree】妝自然眉筆 $220"]},
+            "step_contour": {"reason": "韓系經典國民三色修容，灰調不發紅，最適合混合肌打造精緻鼻影與側臉。", "items": ["【Too Cool For School】美術課三色修容餅 $450", "【Romand】設計師雙色修容 $380", "【I'M MEME】我愛修容魔術棒 $350"]}
         },
         "3": {
             "step1_remover": {"reason": "專櫃頂級潔顏油，洗後全臉水油膚感極致平衡、清爽潔淨。", "items": ["【植村秀】抹茶精萃潔顏油 $1500", "【THREE】平衡潔膚油 $1450", "【BOBBI BROWN】沁透茉莉淨妝油 $1350"]},
             "step2_cleanser": {"reason": "天然奢華植物配方，溫和調理並洗淨面部不同區塊皮脂結構。", "items": ["【THREE】平衡潔膚蜜 $1450", "【SK-II】全效活膚潔面乳 $1500", "【香奈兒】深海系列潔顏慕斯 $1650"]},
-            "step3_toner": {"reason": "殿堂級神仙水，全面深層調理並強效平衡水油分泌狀態。", "items": ["【SK-II】青春露 $3500", "【ESTEE LAUDER】微分子肌底原生露 $2200", "【LANCOME】超極光活粹晶露 $2500"]},
+            "step3_toner": {"reason": "殿堂級神仙水，全面深層調理並強效平衡水油分泌狀態。", "items": ["//【SK-II】青春露 $3500", "【ESTEE LAUDER】微分子肌底原生露 $2200", "【LANCOME】超極光活粹晶露 $2500"]},
             "step4_essence": {"reason": "強效修護肌底，調控T字皮脂腺同時深層修護雙頰乾燥脫屑。", "items": ["【蘭蔻】超未來肌因賦活露小黑瓶 $3100", "【雅詩蘭黛】特潤超導修護露小棕瓶 $3200", "【香奈兒】山茶花保濕微導入精華液 $2900"]},
             "step5_cream": {"reason": "高奢輕盈型鎖水水凝乳，輕盈水凝膜科技提供極致分區水分鎖定。", "items": ["【倩碧】水磁場100H活水循環凝膠 $1500", "【Kiehl's】冰河醣蛋白吸油水凝凍 $1600", "【LANCOME】超輕盈雪紡水凝乳 $2000"]},
             "step6_sunscreen": {"reason": "奢華清爽抗老防曬，高滲透成膜技術，全臉輕透無負擔。", "items": ["【肌膚之鑰】無瑕防曬護膚膏 $2500", "【LANCOME】超輕盈UV水凝露 $1950", "【CHANEL】珍珠光感超淨化防護乳 $2000"]},
             "step7_base": {"reason": "專櫃級防脫防裂持妝乳，保濕度足夠且強效對抗T字出油。", "items": ["【植村秀】無極限保濕妝前乳 $1600", "【YSL】名模肌密光燦水凝露 $2150", "【M·A·C】超顯白持妝乳 $1450"]},
             "step8_concealer": {"reason": "頂級高粉體輕盈遮瑕，瞬間霧化T字毛孔並滋潤雙頰暗沉。", "items": ["【NARS】奢華絲柔持妝遮瑕霜 $1100", "【DIOR】超完美持久遮瑕乳 $1300", "【肌膚之鑰】皆效無瑕遮瑕膏 $2000"]},
             "step9_foundation": {"reason": "動態感應持妝科技粉底，面部遇油時更加持妝、乾燥時自動補水。", "items": ["【SHISEIDO】超進化持久粉底液 $1800", "【雅詩蘭黛】粉持久完美持妝粉底 $2100", "【植村秀】無極限超時輕粉底 $1900"]},
-            "step10_powder": {"reason": "專櫃經典透明蜜粉，長效控制T字油光且雙頰絕不乾裂起皮。", "items": ["【蘿拉蜜思】煥顏透明蜜粉 $1500", "【M·A·C】超持妝輕透鏡蜜粉 $1500", "【GIVENCHY】高級訂製四格蜜粉 $2200"]}
+            "step10_powder": {"reason": "專櫃經典透明蜜粉，長效控制T字油光且雙頰絕不乾裂起皮。", "items": ["【蘿拉蜜思】煥顏透明蜜粉 $1500", "【M·A·C】超持妝輕透鏡蜜粉 $1500", "【GIVENCHY】高級訂製四格蜜粉 $2200"]},
+            "step_eyebrow": {"reason": "神級殿堂武士刀筆芯，抗全臉油水，精細描繪野生眉流感。", "items": ["【植村秀】自動武士刀眉筆 $1350", "【BOBBI BROWN】超防水斜角眉筆 $1400", "【Suqqu】晶采柔飾眉筆 $1100"]},
+            "step_contour": {"reason": "專櫃高奢亞洲消腫灰調大師，完美打造Ｔ字挺拔與雙頰立體光影。", "items": ["【M·A·C】時尚焦點小眼影 #Omega $750", "【KA】神級修容餅 #Medium $1500", "【CHANEL】時尚雙色修容盤 $1850"]}
         }
     },
     "sensitive": {
@@ -133,11 +151,13 @@ SKIN_DATABASE = {
             "step7_base": {"reason": "無添加安全低敏隔離乳，溫和修正泛紅肌膚，不增加負擔。", "items": ["【CEZANNE】長效保濕防曬隔離乳 $290", "【Media】保濕妝前乳 $220", "【1028】舒敏妝前打底乳 $290"]},
             "step8_concealer": {"reason": "通過低敏測試的輕薄遮瑕蜜，安全掩蓋面部紅血絲與泛紅。", "items": ["【Maybelline】FIT ME遮瑕膏 $300", "【1028】服服貼貼遮瑕膏 $280", "【heme】無瑕持久遮瑕蜜 $300"]},
             "step9_foundation": {"reason": "添加溫和礦物成分粉底，對肌膚負擔小，不易引發敏感泛紅。", "items": ["【Media】保濕礦物粉底霜 $280", "【INTEGRATE】柔焦輕透美肌粉餅 $380", "【媚點】自然肌透持效粉底液 $330"]},
-            "step10_powder": {"reason": "極簡無刺激成分蜜粉，輕盈定妝，不給皮膚帶來任何化學負擔。", "items": ["【無印良品】敏感肌定妝蜜粉 $350", "【惹我】清爽吸油蜜粉 $145", "【CEZANNE】抗UV保濕蜜粉餅 $290"]}
+            "step10_powder": {"reason": "極簡無刺激成分蜜粉，輕盈定妝，不給皮膚帶來任何化學負擔。", "items": ["//【無印良品】敏感肌定妝蜜粉 $350", "【惹我】清爽吸油蜜粉 $145", "【CEZANNE】抗UV保濕蜜粉餅 $290"]},
+            "step_eyebrow": {"reason": "通過低敏及皮膚測試的開架柔滑眉筆，不刮傷受損角質。", "items": ["【heme】極細持色眉筆 $169", "【無印良品】木軸眉筆 $110", "【1028】精算持色細眉筆 $180"]},
+            "step_contour": {"reason": "純淨無香料極簡開架修容，溫和修飾臉型，避開泛紅區域發炎。", "items": ["【heme】三色修容餅 $299", "【CEZANNE】小臉修容粉 $200", "【Solone】神隱修容餅 $159"]}
         },
         "2": {
             "step1_remover": {"reason": "醫美級高效低摩擦舒敏卸妝因子，溫和且高安全溶解彩妝。", "items": ["【理膚寶水】高效溫和卸妝水 $480", "【Curel】潤浸保濕卸妝凝露 $400", "【貝德瑪】舒敏潔膚液 $450"]},
-            "step2_cleanser": {"reason": "超細緻綿密慕斯，大幅減少雙手與脆弱肌膚的摩擦物理傷害。", "items": ["【Curel】潤浸保濕洗顏慕斯 $480", "【理膚寶水】多容安泡沫洗面乳 $490", "【Dr.Wu】玻尿酸保濕潔顏慕斯 $400"]},
+            "step2_cleanser": {"reason": "超細緻綿密慕斯，大幅減少雙手與脆弱肌膚的摩擦物理傷害。", "items": ["【Curel】潤浸保濕洗顏慕斯 $480", "【理膚寶水】多容安泡沫洗面乳 $490", "【Dr.Wu】玻尿酸保濕洁颜慕斯 $400"]},
             "step3_toner": {"reason": "高濃度維生素B5與舒緩成分化妝水，快速壓制泛紅不適。", "items": ["【理膚寶水】多容安舒緩保濕化妝水 $650", "【Dr.Wu】玻尿酸保濕精華化妝水 $500", "【雅漾】舒敏修護保濕精華水 $680"]},
             "step4_essence": {"reason": "醫美核心高濃度B5修護精華，強效加速皮膚物理屏障修復。", "items": ["【理膚寶水】B5舒緩保濕修護精華 $950", "【Dr.Wu】積雪草舒敏修護精華 $900", "【Neogence】積雪草B5修護純粹精華 $750"]},
             "step5_cream": {"reason": "萬用型修復霜，迅速壓制泛紅、粗糙脫屑與突發性刺痛。", "items": ["【理膚寶水】B5全面修復霜 $490", "【Curel】潤浸保濕深層乳霜 $720", "【雅漾】舒敏修護保濕霜 $850"]},
@@ -145,19 +165,23 @@ SKIN_DATABASE = {
             "step7_base": {"reason": "專為敏弱肌研發的低刺激持妝乳，築起防護牆、長效持妝。", "items": ["【d program 敏感話題】敏弱飾底乳 $850", "【Curel】潤浸保濕屏護妝前乳 $650", "【MINON】豐潤保濕修飾防曬乳 $600"]},
             "step8_concealer": {"reason": "醫美級抗敏無香料修護遮瑕膏，全面隱形泛紅、絕不刺激傷口。", "items": ["【d program 敏感話題】敏弱遮瑕膏 $600", "【Medicube】修護遮瑕液 $480", "【Nov】娜芙低敏遮瑕膏 $700"]},
             "step9_foundation": {"reason": "專為敏弱與低敏環境設計的溫和底妝，大幅降低化學負擔。", "items": ["【d program 敏感話題】敏弱蜜粉餅 $1100", "【Curel】潤浸保濕屏護粉底液 $750", "【Nov】娜芙礦物粉餅 $950"]},
-            "step10_powder": {"reason": "安心溫和舒緩醫美定妝噴霧，有效減少全臉化學乾粉物理負擔。", "items": ["【理膚寶水】多容安舒緩修護噴霧 $750", "【雅漾】舒護活泉水噴霧定妝 $450", "【Curel】潤浸保濕微粒子噴霧 $550"]}
+            "step10_powder": {"reason": "安心溫和舒緩醫美定妝噴霧，有效減少全臉化學乾粉物理負擔。", "items": ["【理膚寶水】多容安舒緩修護噴霧 $750", "【雅漾】舒護活泉水噴霧定妝 $450", "【Curel】潤浸保濕微粒子噴霧 $550"]},
+            "step_eyebrow": {"reason": "日本醫美低敏品牌研發，滑順不扯皮、不引起毛囊敏感發炎。", "items": ["【Nov 娜芙】極細柔滑眉筆 $580", "【d program 敏感話題】敏弱立體雙頭眉筆 $650", "【Orbis】完美持色眉筆 $380"]},
+            "step_contour": {"reason": "醫美級低敏測試配方修容，修飾臉型同時絕不誘發面部刺痛紅腫。", "items": ["【Nov 娜芙】柔霧雙色修容粉 $750", "【ETVOS】礦物修容/打亮餅 $900", "【d program 敏感話題】敏弱頰彩修容盤 $800"]}
         },
         "3": {
             "step1_remover": {"reason": "頂級草本低敏植物油，在極致安全無刺激下溶解防水彩妝。", "items": ["【DARPHIN】全效舒緩卸妝乳 $1500", "【THREE】平衡潔膚油 $1450", "【植村秀】抹茶精萃潔顏油 $1500"]},
             "step2_cleanser": {"reason": "高奢極致溫和胺基酸洗顏，徹底淨化同時完美撫平脆弱肌理。", "items": ["【THREE】平衡潔膚蜜 $1450", "【SK-II】全效活膚潔面乳 $1500", "【香奈兒】深海系列潔顏慕斯 $1650"]},
             "step3_toner": {"reason": "貴婦級修護精華水，富含神級穩定修護因子，根治敏感。", "items": ["【SK-II】青春露 $3500", "【LANCOME】絕對完美玫瑰修護露 $2800", "【LA MER】濃縮精華露 $3500"]},
             "step4_essence": {"reason": "殿堂級植萃舒緩神級精華，徹底阻斷物理與化學發炎刺激。", "items": ["【DARPHIN】全效舒緩精華小粉紅 $2500", "【LA MER】濃縮精華 $4500", "【蘭蔻】超未來肌因賦活露小黑瓶 $3100"]},
-            "step5_cream": {"reason": "傳奇專櫃頂級屏障修護乳霜，提供神級修護力，讓脆弱肌原地重生。", "items": ["【海洋拉娜】經典乳霜 $6800", "【倩碧】水磁場72H保濕凝膠 $1500", "【百優】精純乳霜 $2300"]},
+            "step5_cream": {"reason": "傳奇專櫃頂級屏障修護乳霜，提供神級修護力，讓脆弱肌原地重生。", "items": ["【海洋拉娜】經典乳霜 $6800", "【百優】精純乳霜 $2300", "【Kiehl's】冰河醣蛋白保濕霜 $1600"]},
             "step6_sunscreen": {"reason": "頂級奢華物理抗老防曬，細緻輕盈，全面阻斷敏感泛紅惡化。", "items": ["【肌膚之鑰】全效防護乳 $3300", "【CHANEL】珍珠光感超淨化防護乳 $2000", "【DIOR】雪晶靈輕透防曬隔離乳 $2200"]},
             "step7_base": {"reason": "明星級全能安全打底妝前乳，修飾泛紅並平衡面部屏障結構。", "items": ["【蘿拉蜜思】煥顏凝露(經典型) $1500", "【肌膚之鑰】光采無瑕妝前凝霜 $2100", "【植村秀】無極限保濕妝前乳 $1600"]},
             "step8_concealer": {"reason": "高奢養膚型保濕遮瑕，極致輕盈貼膚，完美隱蔽泛紅微血管。", "items": ["【肌膚之鑰】皆效無瑕遮瑕膏 $2000", "【NARS】奢華絲柔持妝遮瑕霜 $1100", "【LA MER】奇蹟煥采遮瑕膏 $2500"]},
             "step9_foundation": {"reason": "專利動態修護持妝科技粉底，高遮瑕且將對敏弱肌的負擔降至最低。", "items": ["【SHISEIDO】超進化持久粉底液 $1800", "【BOBBI BROWN】冬蟲夏草精華粉底 $2600", "【植村秀】無極限超時輕粉底 $1900"]},
-            "step10_powder": {"reason": "專櫃奢華極細透明蜜粉，完美柔焦，對敏弱肌膚極致零摩擦。", "items": ["【蘿拉蜜思】煥顏透明蜜粉 $1500", "【香奈兒】輕盈完美蜜粉 $2150", "【肌膚之鑰】光采蜜粉 $2450"]}
+            "step10_powder": {"reason": "專櫃奢華極細透明蜜粉，完美柔焦，對敏弱肌膚極致零摩擦。", "items": ["【蘿拉蜜思】煥顏透明蜜粉 $1500", "【香奈兒】輕盈完美蜜粉 $2150", "【肌膚之鑰】光采蜜粉 $2450"]},
+            "step_eyebrow": {"reason": "頂級真絲般流暢筆觸，完全零拉扯，對敏感眼周眉骨極致溫和。", "items": ["【肌膚之鑰】線條美眉筆 $1800", "【Suqqu】晶采柔飾眉筆 $1100", "【香奈兒】持久防水眉筆 $1450"]},
+            "step_contour": {"reason": "高奢全天然植物系礦物礦體，粉質細緻至極，完美立體五官且杜絕過敏發炎。", "items": ["【Chantecaille 香緹卡】真實肌膚修容餅 $2500", "【Suqqu】晶采淨妍雙色修容盤 $2100", "【肌膚之鑰】立體打亮修容盤 $3100"]}
         }
     }
 }
@@ -179,14 +203,14 @@ MAKEUP_STYLE_DATABASE = {
         "budget_data": {
             "1": {"eyeshadow": ["【heme】六色眼影盤 #玫瑰蜜桃 $299", "【Canmake】完美高效眼影盤 $380"], "blusher": ["【Canmake】花漾戀愛修容組 $390", "【Romand】完美腮紅 $260"], "lipstick": ["【Romand】果汁水光唇釉 $280", "【CEZANNE】持久潤澤唇膏 $260"]},
             "2": {"eyeshadow": ["【3CE】九色眼影盤 #OVERTAKE $790", "【CLIO】十色眼影盤 #櫻花粉 $680"], "blusher": ["【Clinique】小雛菊腮紅 $700", "【3CE】單色腮紅 $450"], "lipstick": ["【M·A·C】絲柔粉霧唇釉 $1050", "【Pony Effect】奢華唇釉 $550"]},
-            "3": {"eyeshadow": ["【SUQQU】晶采盈緻眼彩盤 $2600", "【DIOR】經典五色眼影 #玫瑰色 $2500"], "blusher": ["【CHANEL】圓形腮紅 $1500", "【NARS】炫色腮紅 $1150"], "lipstick": ["【Tom Ford】設計師唇膏 $1900", "【CHANEL】COCO晶亮水唇膏 $1400"]}
+            "3": {"eyeshadow": ["【SUQQU】晶采盈緻眼彩盤 $2600", "【DIOR】經典五色眼影 #玫瑰色 $2500"], "blusher": ["【CHANEL】圓形腮紅 $1500", "//【NARS】炫色腮紅 $1150"], "lipstick": ["【Tom Ford】設計師唇膏 $1900", "【CHANEL】COCO晶亮水唇膏 $1400"]}
         }
     },
     "3": { 
         "style_name": "輕歐美俐落消腫冷灰棕妝容",
         "budget_data": {
             "1": {"eyeshadow": ["【Solone】經典單色眼影自組盤 $250", "【1028】飛我莫屬限量眼彩盤 #灰調 $390"], "blusher": ["【heme】純色腮紅 #04 $240", "【Solone】經典腮紅 $150"], "lipstick": ["【into you】唇泥 #EM23 $249", "【Solone】極潤緞光唇膏 $280"]},
-            "2": {"eyeshadow": ["【KATE】色影迷棕眼影盤 $420", "【3CE】九色眼影盤 #SOME DEF $790"], "blusher": ["微【3CE】單色腮紅 $450", "【Clinique】小雛菊腮紅 #修容色 $700"], "lipstick": ["【MAC】時尚唇膏 #Taupe $800", "【3CE】絲絨霧面唇釉 $490"]},
+            "2": {"eyeshadow": ["【KATE】色影迷棕眼影盤 $420", "【3CE】九色眼影盤 #SOME DEF $790"], "blusher": ["【3CE】單色腮紅 $450", "【Clinique】小雛菊腮紅 #修容色 $700"], "lipstick": ["【MAC】時尚唇膏 #Taupe $800", "【3CE】絲絨霧面唇釉 $490"]},
             "3": {"eyeshadow": ["【DIOR】經典五色眼影 #酷灰 $2500", "【TOM FORD】四格眼盤 #消腫灰 $2600"], "blusher": ["【NARS】霧光修容餅 $1400", "【CHANEL】圓形腮紅 $1500"], "lipstick": ["【YSL】小黑條口紅 #314 $1450", "【DIOR】巨星唇膏 $1400"]}
         }
     },
@@ -209,10 +233,13 @@ MAKEUP_STYLE_DATABASE = {
 }
 
 TUTORIAL_DATABASE = {
-    "skincare": [
-        {"title": "皮膚科莊盈彥醫師 - 基礎護膚學理與正確保養順序", "url": "https://www.youtube.com/results?search_query=%E8%8E%8A%E7%9B%88%E5%BD%A5+%E4%BF%9D%E9%A4%8A%E9%A0%86%E5%BA%8F"},
-        {"title": "Dr. Ivan 6 - 混合肌與油肌分區控油穩膚防脫皮教學", "url": "https://www.youtube.com/results?search_query=Dr+Ivan+6+%E6%B7%B7%E5%90%88%E8%82%8C+%E4%BF%9D%E9%A4%8A"}
-    ],
+    "skincare_by_type": {
+        "oil": {"title": "Dr. Ivan 6 - 混合肌與油肌分區控油穩膚防脫皮教學", "url": "https://www.youtube.com/results?search_query=Dr+Ivan+6+%E6%B7%B7%E5%90%88%E8%82%8C+%E4%BF%9D%E9%A4%8A"},
+        "mix": {"title": "Dr. Ivan 6 - 混合肌與油肌分區控油穩膚防脫皮教學", "url": "https://www.youtube.com/results?search_query=Dr+Ivan+6+%E6%B7%B7%E5%90%88%E8%82%8C+%E4%BF%9D%E9%A4%8A"},
+        "dry": {"title": "Dr. Ivan 6 - 乾燥肌缺水密集補水防脫屑起皮教學", "url": "https://www.youtube.com/results?search_query=Dr+Ivan+6+%E4%B9%BE%E6%80%A7%E8%82%8C+%E4%BF%9D%E9%A4%8A"},
+        "sensitive": {"title": "皮膚科醫生 - 敏感肌與泛紅肌極簡退紅屏障修護學理", "url": "https://www.youtube.com/results?search_query=%E6%95%8F%E6%84%9F%E8%82%8C+%E4%BF%9D%E9%A4%8A+%E9%86%AB%E7%94%9F"}
+    },
+    "skincare_basic": {"title": "皮膚科莊盈彥醫師 - 基礎護膚學理與正確保養順序", "url": "https://www.youtube.com/results?search_query=%E8%8E%8A%E7%9B%88%E5%BD%A5+%E4%BF%9D%E9%A4%8A%E9%A0%86%E5%BA%8F"},
     "makeup_styles": {
         "1": {"title": "PONY - 韓系日常大地色消腫暖調妝容完整教學", "url": "https://www.youtube.com/results?search_query=PONY+%E9%9F%93%E7%B3%BB%E5%A4%A7%E5%9C%B0%E8%89%B2%E5%A6%9D%E5%AE%B9"},
         "2": {"title": "一枝南南 - 溫柔玫瑰粉棕色大面積腮紅招桃花約會妝", "url": "https://www.youtube.com/results?search_query=%E4%B8%80%E6%9E%9D%E5%8D%97%E5%8D%97+%E7%8E%AB%E7%91%B0%E7%B2%89%E6%A3%95%E5%A6%9D%E5%AE%B9"},
@@ -223,7 +250,7 @@ TUTORIAL_DATABASE = {
 }
 
 # ==============================================================================
-# 📺 3. Streamlit 網頁介面設計
+# 3. Streamlit 網頁介面設計
 # ==============================================================================
 st.set_page_config(page_title="專業級智能美妝護膚諮詢系統", page_icon="💄", layout="centered")
 
@@ -233,7 +260,6 @@ st.markdown("---")
 
 st.header("🔍 請輸入您的個人條件")
 
-# 模式切換開關
 mode_option = st.radio(
     "💡 請選擇系統運作模式：",
     ["🌞 13步精緻全妝指南 (日間保養+底妝+彩妝)", "🌙 5步深夜保養修護 (夜間清潔+深度鎖水)"],
@@ -257,7 +283,6 @@ style_options = {
     "⏰ 早八快速妝容": "5"
 }
 
-# 當切換至深夜保養時，動態禁用彩妝風格選單
 user_style_label = st.selectbox(
     "3. 您今天想搭配哪一種彩妝風格？", 
     list(style_options.keys()), 
@@ -266,7 +291,6 @@ user_style_label = st.selectbox(
 )
 user_style = style_options[user_style_label] if not is_night_mode else "1"
 
-# 按鈕文字隨模式自動更換
 btn_text = "🚀 生成夜間深度保養修護報告" if is_night_mode else "🚀 生成客製化 13 步美妝護膚報告"
 
 if st.button(btn_text, use_container_width=True):
@@ -277,7 +301,7 @@ if st.button(btn_text, use_container_width=True):
     
     if is_night_mode:
         # ==========================================================================
-        # 🌙 模式 A：深夜保養修護報告 (5 步驟) -> 從卸妝潔顏開始，完全符合夜間邏輯
+        # 🌙 模式 A：深夜保養修護報告 (5 步驟)
         # ==========================================================================
         st.header(f"🎉 您的深夜保養修護報告")
         st.info(skin_info["diagnosis"].replace("底妝", "保養"))
@@ -293,12 +317,12 @@ if st.button(btn_text, use_container_width=True):
         for step_title, db_key in night_steps:
             with st.expander(step_title, expanded=True):
                 st.markdown(f"💡 **夜間學理修護理由**：{skin_dict[db_key]['reason'].replace('妝前', '夜間')}")
-                st.markdown("**📋 推薦符合此條件的品項：**")
+                st.markdown("**📋 推薦的品項：**")  # ✨ 已優化：簡化文字
                 for item in skin_dict[db_key]['items']:
                     st.write(f"- {item}")
     else:
         # ==========================================================================
-        # 🌞 模式 B：精緻全妝指南 (13 步驟) -> 導正盲點：日間化妝前「不從卸妝開始」，改由化妝水起步
+        # 🌞 模式 B：精緻全妝指南 (13 步驟)
         # ==========================================================================
         st.header(f"🎉 您的 13 步客製化報告 ({user_style_label})")
         st.info(skin_info["diagnosis"])
@@ -306,7 +330,7 @@ if st.button(btn_text, use_container_width=True):
         style_info = MAKEUP_STYLE_DATABASE[user_style]
         raw_makeup_lists = style_info["budget_data"][user_budget]
         
-        # 🧴 PART 1：日間妝前保養篇 (STEP 1 ~ 3) -> 從化妝水開始
+        # 🧴 PART 1：日間妝前保養篇 (STEP 1 ~ 3)
         st.subheader("🧴 第一階段：日間妝前神級保養 (STEP 1 ~ 3)")
         skincare_steps = [
             ("STEP 1【基礎補水/化妝水步驟】", "step3_toner"),
@@ -316,66 +340,60 @@ if st.button(btn_text, use_container_width=True):
         for step_title, db_key in skincare_steps:
             with st.expander(step_title, expanded=True):
                 st.markdown(f"💡 **學理推薦理由**：{skin_dict[db_key]['reason']}")
-                st.markdown("**📋 推薦符合此條件的品項：**")
+                st.markdown("**📋 推薦的品項：**")  # ✨ 已優化：簡化文字
                 for item in skin_dict[db_key]['items']:
                     st.write(f"- {item}")
                     
-        # 🪞 PART 2：完美底妝篇 (STEP 4 ~ 10) -> 步驟重新依序順延編號
+        # 🪞 PART 2：完美底妝篇 (STEP 4 ~ 10)
         st.markdown(" ")
-        st.subheader("🪞 第二階段：極致服貼底妝 (STEP 4 ~ 10)")
+        st.subheader("🪞 第二階段：極致服貼底妝與打底 (STEP 4 ~ 10)")
         makeup_base_steps = [
             ("STEP 4【日間高效防曬步驟】", "step6_sunscreen"),
             ("STEP 5【隔離打底/校色飾底乳步驟】", "step7_base"),
             ("STEP 6【局部瑕疵/重點遮瑕步驟】", "step8_concealer"),
             ("STEP 7【全臉無瑕粉底上妝步驟】", "step9_foundation"),
             ("STEP 8【蜜粉定妝/噴霧定妝鎖水步驟】", "step10_powder"),
-            ("STEP 9【立體輪廓/修容高光步驟】", "step10_powder"), # 使用原本定妝或底妝基底，增加全妝精緻度
-            ("STEP 10【精神元氣/完美眉彩步驟】", "step10_powder")
+            ("STEP 9【全臉精神元氣/完美眉彩步驟】", "step_eyebrow"),
+            ("STEP 10【精緻面部輪廓/修容高光步驟】", "step_contour")
         ]
-        # 備註：此處為了不破壞妳原本設計的 10 大資料庫結構，STEP 9與10共用粉體延伸，但顯示標題重新定義為彩妝基本功
-        for step_title, db_key in makeup_base_steps[:5]: # 前五個核心底妝防曬步驟
+        
+        for step_title, db_key in makeup_base_steps:
             with st.expander(step_title, expanded=True):
                 st.markdown(f"💡 **學理推薦理由**：{skin_dict[db_key]['reason']}")
-                st.markdown("**📋 推薦符合此條件的品項：**")
+                st.markdown("**📋 推薦的品項：**")  # ✨ 已優化：簡化文字
                 for item in skin_dict[db_key]['items']:
                     st.write(f"- {item}")
-                    
-        with st.expander("STEP 9【全臉精神元氣/完美眉彩步驟】", expanded=True):
-            st.markdown("💡 **學理推薦理由**：在進入彩妝前，優先勾勒出眉型輪廓，能讓整體的五官立體度與精神感瞬間提升，也是精緻妝容不可或缺的骨架。")
-            st.markdown("**📋 推薦品項：** 建議搭配個人髮色選擇市售抗汗眉筆或眉粉。")
 
-        with st.expander("STEP 10【精緻面部輪廓/修容高光步驟】", expanded=True):
-            st.markdown("💡 **學理推薦理由**：利用陰影與高光粉體修飾臉部立體結構，讓後續的風格彩妝色彩呈現更加生動、立體不扁平。")
-            st.markdown("**📋 推薦品項：** 建議選擇偏灰調修容與細緻不顯毛孔的高光盤。")
-
-        # 🎨 PART 3：風格彩妝篇 (STEP 11 ~ 13) -> 精準承接後續彩妝大作
+        # 🎨 PART 3：風格彩妝篇 (STEP 11 ~ 13)
         st.markdown(" ")
         st.subheader("🎨 第三階段：彩妝精華點綴 (STEP 11 ~ 13)")
 
         with st.expander(f"STEP 11【{style_info['style_name']} - 風格深邃眼妝】", expanded=True):
             st.markdown(f"💡 **學理推薦理由**：依據『{style_info['style_name']}』色彩美學，加強眼部消腫與立體輪廓。")
-            st.markdown("**📋 推薦眼影品項：**")
+            st.markdown("**📋 推薦的品項：**")  # ✨ 已優化：簡化文字
             for item in raw_makeup_lists["eyeshadow"]: st.write(f"- {item}")
 
         with st.expander(f"STEP 12【{style_info['style_name']} - 氣色雙頰腮紅】", expanded=True):
             st.markdown(f"💡 **學理推薦理由**：依據『{style_info['style_name']}』大面積暈染，完美修飾臉型並提升整體氣色。")
-            st.markdown("**📋 推薦腮紅品項：**")
+            st.markdown("**📋 推薦的品項：**")  # ✨ 已優化：簡化文字
             for item in raw_makeup_lists["blusher"]: st.write(f"- {item}")
 
         with st.expander(f"STEP 13【{style_info['style_name']} - 唇部點綴唇妝】", expanded=True):
             st.markdown(f"💡 **學理推薦理由**：依據『{style_info['style_name']}』色調，勾勒完美唇形，達成全妝視覺收尾。")
-            st.markdown("**📋 推薦口紅品項：**")
+            st.markdown("**📋 推薦的品項：**")  # ✨ 已優化：簡化文字
             for item in raw_makeup_lists["lipstick"]: st.write(f"- {item}")
 
-    # ==========================================================================
+    # ==============================================================================
     # 📺 共通區塊：影音教程推薦
     # ==============================================================================
     st.markdown("---")
     st.subheader("📺 專屬線上影音教程推薦")
     
     st.markdown("**【基礎保養學理教程】**")
-    for link_item in TUTORIAL_DATABASE["skincare"]:
-        st.link_button(f"🧴 {link_item['title']}", link_item['url'])
+    st.link_button(f"🧴 {TUTORIAL_DATABASE['skincare_basic']['title']}", TUTORIAL_DATABASE['skincare_basic']['url'])
+    
+    specific_skincare = TUTORIAL_DATABASE["skincare_by_type"][user_skin]
+    st.link_button(f"🧴 {specific_skincare['title']}", specific_skincare['url'])
         
     if not is_night_mode:
         st.markdown("**【本次彩妝風格教程】**")
